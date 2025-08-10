@@ -1,0 +1,141 @@
+/* Voice Assistant — fixed to one viewport, no scrollbars */
+:root {
+    --nav-height: 72px;
+    --page-pad: clamp(12px, 3vw, 24px);
+
+    --orb-top: clamp(40px, 9vh, 96px);
+
+    --wave-h: clamp(96px, 18vh, 160px);
+    --wave-max-w: 1000px;
+
+    --mic-size: clamp(64px, 8vh, 84px);
+    --mic-gap: 24px;
+
+    --mic-green: #16a34a;
+    --mic-red: #dc2626;
+}
+
+/* Lock to viewport: no vertical scrollbar */
+.voice-assistant-wrapper {
+    position: relative;
+    height: calc(100svh - var(--nav-height));
+    min-height: auto;
+    padding: 0 var(--page-pad);
+    background: var(--bg);
+    /* from global theme tokens */
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    /* prevent stray scrollbars */
+}
+
+/* ORB near the top */
+.voice-stage-orb {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--orb-top);
+}
+
+/* WAVE — centered between orb and mic (no borders/cards) */
+.voice-stage-wave {
+    position: relative;
+    width: min(var(--wave-max-w), 86vw);
+    height: var(--wave-h);
+    margin: 16px auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.voice-stage-wave canvas,
+.voice-stage-wave svg,
+.voice-stage-wave .container-audio-wave,
+.voice-stage-wave #waveCanvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Optional status pill */
+.connection-status {
+    font-size: .92rem;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--text) 10%, transparent);
+    color: var(--text);
+}
+
+/* MIC — fixed bottom center */
+.mic-controls {
+    position: fixed;
+    left: 50%;
+    bottom: max(24px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.mic-icon-btn {
+    position: relative;
+    width: var(--mic-size);
+    height: var(--mic-size);
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(var(--mic-size) * 0.38);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mic-icon-btn.inactive {
+    background: var(--mic-red);
+}
+
+.mic-icon-btn.inactive::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: calc(var(--mic-size) * 1.35);
+    background: #fff;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    pointer-events: none;
+    opacity: .95;
+}
+
+.mic-icon-btn.active {
+    background: var(--mic-green);
+}
+
+.mic-icon-btn:hover {
+    transform: translateY(-2px);
+}
+
+.mic-icon-btn:active {
+    transform: translateY(0);
+}
+
+.mic-icon-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}

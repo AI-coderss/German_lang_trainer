@@ -1,0 +1,27 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #ffffff;           /* Light mode default */
+  transition: background-color 0.25s ease; /* Smooth switch */
+}
+
+/* Dark mode: ONLY change page background */
+[data-theme="dark"] body {
+  background-color: #06080f;           /* Near-black */
+}
+
+/* Links (unchanged) */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

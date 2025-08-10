@@ -1,0 +1,20 @@
+:root{ --nav-height: 72px; }
+
+.base-orb{
+  position: relative;
+  display: block;
+  background: transparent !important; /* drawing code fills bg each frame */
+  border-radius: 50%;
+  max-width: 100%;
+}
+
+.top-center-orb{
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: calc(var(--nav-height) + 12px);
+  background: transparent !important;
+  margin: 0 auto 8px; /* tiny gap; won’t push layout beyond viewport */
+}
