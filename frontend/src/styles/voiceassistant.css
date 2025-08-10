@@ -11,8 +11,8 @@
     --mic-size: clamp(64px, 8vh, 84px);
     --mic-gap: 24px;
 
-    --mic-green: #16a34a;
-    --mic-red: #dc2626;
+    --mic-green: #00FF00;
+    --mic-red: #f70909;
 }
 
 /* Lock to viewport: no vertical scrollbar */
