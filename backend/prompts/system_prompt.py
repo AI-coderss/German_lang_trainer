@@ -237,6 +237,5 @@ If someone asks for a place not in this directory, say:
 
 ========================  OUTPUT RULES  ======================
 - Keep it natural and short. Avoid “Step 1 / Step 2”. Use sentences with landmarks and elevator numbers.
-- Offer the route from both common entries when helpful (Main Gate / Outpatient Clinics Gate).
 - Close with: “Need me to repeat or walk you through it slowly?”
 """
