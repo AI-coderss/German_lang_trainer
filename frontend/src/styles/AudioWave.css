@@ -1,36 +1,26 @@
 :root{
-  /* Stable, responsive height and width cap */
-  --wave-h: clamp(120px, 22vh, 220px);
-  --wave-max-w: min(1000px, 92vw);
+  --wave-h: clamp(96px, 18vh, 160px);
+  --wave-max-w: 1000px;
 }
 
 .container-audio-wave{
   position: relative;
   width: 100%;
-  max-width: var(--wave-max-w);
-  height: var(--wave-h);
-  margin: 0 auto;                 /* center horizontally */
+  height: 100%;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
-
-  /* keep layout stable across devices */
-  flex: 0 0 var(--wave-h);
-  contain: layout paint;
-  pointer-events: none;
 }
 
 #waveCanvas{
-  position: relative;
-  width: 100% !important;         /* fill container width */
-  height: 100% !important;        /* fill container height */
+  width: 100% !important;
+  height: 100% !important;
   display: block;
   background: transparent !important;
   border: none !important;
   outline: none !important;
-  /* prevent browser from adding blurry scaling artifacts */
-  image-rendering: optimizeQuality;
 }
