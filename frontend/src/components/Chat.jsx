@@ -10,7 +10,7 @@ import "../styles/chat.css";
 const Chat = () => {
   const [chats, setChats] = useState([
     {
-      msg: "Hi there! How can I assist you today with your IVF Training?",
+      msg: "Hi there! I am your virtual assistant. How can I help you today?",
       who: "bot",
     },
   ]);
