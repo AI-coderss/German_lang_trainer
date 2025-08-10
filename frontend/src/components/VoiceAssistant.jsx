@@ -203,7 +203,7 @@ const VoiceAssistant = () => {
       await pc.setLocalDescription(modifiedOffer);
 
       const res = await fetch(
-        "https://voiceassistant-mode-webrtc-server.onrender.com/api/rtc-connect",
+        "https://patient-ai-assistant-new-version-backend.onrender.com/api/rtc-connect",
         {
           method: "POST",
           headers: { "Content-Type": "application/sdp" },

@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 CORS(app, resources={
     r"/api/*": {
-        "origins": "https://ivf-virtual-training-assistant-dsah.onrender.com",
+        "origins": "https://patient-ai-assistant-mulltimodal-app.onrender.com",
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"]
     }
@@ -35,7 +35,7 @@ if not OPENAI_API_KEY:
 OPENAI_SESSION_URL = "https://api.openai.com/v1/realtime/sessions"
 OPENAI_API_URL = "https://api.openai.com/v1/realtime"
 MODEL_ID = "gpt-4o-realtime-preview-2024-12-17"
-VOICE = "alloy"
+VOICE = "fable"
 DEFAULT_INSTRUCTIONS = SYSTEM_PROMPT
 
 def get_vector_store():
