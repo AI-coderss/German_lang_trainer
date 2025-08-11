@@ -29,7 +29,7 @@ const Chat = () => {
 
   useEffect(() => {
     // fetch("http://localhost:5050/suggestions")
-    fetch("https://ivf-backend-server.onrender.com/suggestions")
+    fetch("https://patient-ai-assistant-new-version-backend.onrender.com/suggestions")
       .then((res) => res.json())
       .then((data) => setSuggestedQuestions(data.suggested_questions || []))
       .catch((err) => console.error("Failed to fetch suggestions:", err));
@@ -40,7 +40,7 @@ const Chat = () => {
     setChats((prev) => [...prev, { msg: text, who: "me" }]);
     setSuggestedQuestions((prev) => prev.filter((q) => q !== text)); // remove clicked item
 
-    const res = await fetch("https://ivf-backend-server.onrender.com/stream", {
+    const res = await fetch("https://patient-ai-assistant-new-version-backend.onrender.com/stream", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: text, session_id: sessionId }),
