@@ -20,11 +20,27 @@ load_dotenv()
 app = Flask(__name__)
 
 CORS(app, resources={
+
     r"/api/*": {
         "origins": "https://patient-ai-assistant-mulltimodal-app.onrender.com",
         "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type", "Authorization"]
+        "allow_headers": ["Content-Type", "Authorization"],
+        "supports_credentials": True
+
+    },
+    r"/stream": {
+        "origins": "https://patient-ai-assistant-mulltimodal-app.onrender.com",
+        "methods": ["POST", "OPTIONS", "GET"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "supports_credentials": True
+    },
+    r"/suggestions": {
+        "origins": "https://patient-ai-assistant-mulltimodal-app.onrender.com",
+        "methods": ["GET", "OPTIONS"],  
+        "allow_headers": ["Content-Type", "Authorization"],
+        "supports_credentials": True
     }
+
 })
 
 # Configure logging
