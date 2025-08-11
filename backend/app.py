@@ -216,6 +216,7 @@ def suggestions():
     # 1. Create a list of different prompts
     prompt_templates = [
         "Generate a list of 25 suggested questions from the database related to navigation of the hospital, services, and health concerns.",
+        "Generate a list of 25 suggested questions that patients might ask about hospital services, health concerns, and navigation. like where to find a specific department, how to book an appointment, or what services are available.",
         "You are Patient AI Assistant, a calm, friendly guide for visitors at Dr. Samir Abbas Hospital. Your primary goal is to assist patients in navigating the hospital's services, answering their questions, and providing information about their health concerns."
     ]
 
