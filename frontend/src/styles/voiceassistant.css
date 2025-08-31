@@ -612,3 +612,42 @@ body:has(.voice-assistant-wrapper) {
     --mic-size: clamp(54px, 7.0vh, 70px);
   }
 }
+/* ================== AudioWave — mobile tidy overrides ================== */
+/* Paste at the BOTTOM of src/styles/voiceassistant.css */
+
+@media (max-width: 640px){
+  /* Reduce overall footprint and add subtle rounding */
+  .transcript-cover .cover-visual{
+    padding: 4px 0 6px;
+  }
+  .transcript-cover .container-audio-wave{
+    width: 92%;
+    max-width: 520px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  /* Make the waveform shorter on phones */
+  .transcript-cover #waveCanvas{
+    height: clamp(90px, 18vh, 150px) !important;
+  }
+}
+
+/* Ultra-small devices */
+@media (max-width: 380px){
+  .transcript-cover .container-audio-wave{
+    width: 94%;
+    max-width: 460px;
+    border-radius: 10px;
+  }
+  .transcript-cover #waveCanvas{
+    height: clamp(80px, 16vh, 130px) !important;
+  }
+}
+
+/* Short screens (landscape phones) */
+@media (max-height: 740px) and (max-width: 900px){
+  .transcript-cover #waveCanvas{
+    height: clamp(80px, 16vh, 140px) !important;
+  }
+}
