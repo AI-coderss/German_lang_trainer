@@ -237,7 +237,7 @@
   border: 1px solid var(--divider);
   background: color-mix(in srgb, var(--nav-bg) 92%, transparent);
 }
-.drawer-row-label{ font-weight: 700; }
+.drawer-row-label{ font-weight: 700; color: var(--nav-text); }
 
 /* IMPORTANT: Do NOT hide the theme toggle on mobile.
    Only hide the INLINE one by class name. */
