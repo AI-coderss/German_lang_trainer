@@ -2,17 +2,22 @@
 // src/components/Navbar.jsx
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import ThemeSwitch from "./ThemeSwitch"; 
 import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+  
 
+ const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") return "light";
+    return localStorage.getItem("rt2-theme") || "light";
+  });
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    localStorage.setItem("rt2-theme", theme);
   }, [theme]);
-
+  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
   const items = [
     { label: "Voice Assistant", path: "/voice-assistant", emoji: "🗣️" },
     { label: "Text Chat", path: "/text-chat", emoji: "💬" },
@@ -50,17 +55,11 @@ const Navbar = () => {
         <div className="nav__tools">
           {/* Theme toggle stays OUTSIDE on desktop/tablet */}
           <label className="theme-toggle theme-toggle--inline" title="Toggle theme">
-            <input
-              type="checkbox"
-              checked={theme === "dark"}
-              onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-              aria-label="Toggle dark mode"
-            />
-            <span className="toggle-track">
-              <span className="toggle-icon sun" aria-hidden>☀️</span>
-              <span className="toggle-thumb" />
-              <span className="toggle-icon moon" aria-hidden>🌙</span>
-            </span>
+               <ThemeSwitch
+            checked={theme === "dark"}
+            onChange={toggleTheme}
+            ariaLabel="Toggle theme"
+          />
           </label>
 
           {/* Burger ONLY for mobile — always pinned far right */}
@@ -123,17 +122,11 @@ const Navbar = () => {
             <div className="drawer-row">
               <span className="drawer-row-label">Theme</span>
               <label className="theme-toggle" title="Toggle theme">
-                <input
-                  type="checkbox"
-                  checked={theme === "dark"}
-                  onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-                  aria-label="Toggle dark mode"
-                />
-                <span className="toggle-track">
-                  <span className="toggle-icon sun" aria-hidden>☀️</span>
-                  <span className="toggle-thumb" />
-                  <span className="toggle-icon moon" aria-hidden>🌙</span>
-                </span>
+                 <ThemeSwitch
+            checked={theme === "dark"}
+            onChange={toggleTheme}
+            ariaLabel="Toggle theme"
+          />
               </label>
             </div>
           </div>
