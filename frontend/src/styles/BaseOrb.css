@@ -1,20 +1,21 @@
-:root{ --nav-height: 72px; }
+/* BaseOrb.css
+   Keep the canvas small; particles fill inside (from JS).
+   This is the canvas element inside the baseboard.
+*/
 
 .base-orb{
-  position: relative;
-  display: block;
-  background: transparent !important; /* drawing code fills bg each frame */
-  border-radius: 50%;
-  max-width: 100%;
+  display:block;
+  width: 88%;      /* small footprint; keeps cards near the fold */
+  height:auto;
+  aspect-ratio:1 / 1;
+  border-radius:50%;
+  margin:0 auto;
 }
 
-.top-center-orb{
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: calc(var(--nav-height) + 12px);
-  background: transparent !important;
-  margin: 0 auto 8px; /* tiny gap; won’t push layout beyond viewport */
+@media (max-width:900px){
+  .base-orb{ width: 84%; }
+}
+
+@media (max-width:480px){
+  .base-orb{ width: 80%; }
 }
